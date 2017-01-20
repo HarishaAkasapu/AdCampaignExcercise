@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class CampaignManager {
-	private static List<Campaign> campaigns = new ArrayList<>();
+    private static List<Campaign> campaigns = new ArrayList<>();
 	 	     
-	/**
-	 * Business method to add new campaign to the existing collection.
-	 * @param currentCampaign
-	 */
+    /**
+    * Business method to add new campaign to the existing collection.
+    * @param currentCampaign
+    */
     public static void addCampaign(Campaign currentCampaign) {
     	if(currentCampaign != null){
     		currentCampaign.setCreatedTs(new Timestamp(System.currentTimeMillis()));
