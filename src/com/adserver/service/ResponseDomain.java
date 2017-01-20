@@ -9,7 +9,7 @@ public class ResponseDomain {
 	private String message;
 	private String type;
 	
-	public ResponseDomain(int code, String type, String message){
+	public ResponseDomain(int code, String type, String message) {
 		this.code = code;
 		this.type = type;
 		this.message = message;
