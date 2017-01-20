@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringBootApplication
 public class AdServerApplication {
+	
 	/**
 	 * Main method for further delegation and bootstrap the application. 
 	 * @param args
