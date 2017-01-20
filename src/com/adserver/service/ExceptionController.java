@@ -15,6 +15,7 @@ public class ExceptionController {
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ResponseDomain> exceptionHandler(Exception ex) {
 		ResponseDomain error = new ResponseDomain(HttpStatus.PRECONDITION_FAILED.value(), "Failure",  ex.getMessage());
+		
 		return new ResponseEntity<ResponseDomain>(error, HttpStatus.OK);
 	}
 }
