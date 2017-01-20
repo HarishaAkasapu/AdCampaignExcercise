@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * POJO for Campaign.
  */
 public class Campaign {
-	private String partnerId;
+    private String partnerId;
     private String adContent;
     private int duration;
     private Timestamp createdTs;
