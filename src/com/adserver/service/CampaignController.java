@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class CampaignController {
-	/**
-	 * REST service to create Ad campaign through Business Manager.
-	 * @param campaign
-	 * @return
-	 * @throws Exception
-	 */
+    /**
+    * REST service to create Ad campaign through Business Manager.
+    * @param campaign
+    * @return
+    * @throws Exception
+    */
     @RequestMapping(value = "/ad", method = RequestMethod.POST)
     public Object createCampaign(@RequestBody Campaign campaign) throws Exception {
     	if(campaign.getPartnerId() !=null && (CampaignManager.getCampaign(campaign.getPartnerId()) != null)){
