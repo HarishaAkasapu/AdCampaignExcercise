@@ -21,6 +21,7 @@ public class CampaignClient {
 	
 	/**
 	 * Method to invoke REST service for campaign creation.
+	 * URI: http://localhost:8080/ad
 	 * @param campaign
 	 * @return
 	 */
@@ -31,17 +32,19 @@ public class CampaignClient {
 	/**
 	 * Method to invoke REST service for getting campaign by Partner Id.
 	 * @param partnerId
+	 * URI: http://localhost:8080/ad/{partnerId}
 	 * @return
 	 */
 	public Object getCampaign(String partnerId) {
 		Map<String, String> params = new HashMap<String, String>();
-	    params.put("partnerId", partnerId);
+	    	params.put("partnerId", partnerId);
 	    
 		return restTemplate.getForObject("http://localhost:8080/ad/{partnerId}", Object.class, params);	    
 	}
 
 	/**
 	 * Method to invoke REST service for getting all active campaigns.
+	 * URI: http://localhost:8080/ad/all
 	 * @return
 	 */
 	public Object getAllCampaigns() {
@@ -61,21 +64,21 @@ public class CampaignClient {
 		response = this.createCampaign(campaign);
 	
 		try {
-	    	System.out.println("Create Campaign with Partner ID-"+campaign.getPartnerId()+" Request::"+mapper.writerWithDefaultPrettyPrinter().writeValueAsString(campaign));
+	    		System.out.println("Create Campaign with Partner ID-"+campaign.getPartnerId()+" Request::"+mapper.writerWithDefaultPrettyPrinter().writeValueAsString(campaign));
 			System.out.println("Create Campaign with Partner ID-"+partnerId+": Response::"+mapper.writerWithDefaultPrettyPrinter().writeValueAsString(response));
 	
 			partnerId = "1";
 			campaign = new Campaign(partnerId, "Ad for Campaign1", 20);
 			/*Create a new campaign with same Partner Id- To validate error handling "Campaign already exists for this Partner"*/
 			response = this.createCampaign(campaign);
-	    	System.out.println("Create Campaign with Partner ID-"+campaign.getPartnerId()+" Request::"+mapper.writerWithDefaultPrettyPrinter().writeValueAsString(campaign));
+	    		System.out.println("Create Campaign with Partner ID-"+campaign.getPartnerId()+" Request::"+mapper.writerWithDefaultPrettyPrinter().writeValueAsString(campaign));
 			System.out.println("Create Campaign with Partner ID-"+partnerId+": Response::"+mapper.writerWithDefaultPrettyPrinter().writeValueAsString(response));
 			
 			partnerId = "2";
 			campaign = new Campaign(partnerId, "Ad for Campaign2", 20);
 			/*Create a new campaign with different Partner Id*/
 			response = this.createCampaign(campaign);
-	    	System.out.println("Create Campaign with Partner ID-"+campaign.getPartnerId()+" Request::"+mapper.writerWithDefaultPrettyPrinter().writeValueAsString(campaign));
+	    		System.out.println("Create Campaign with Partner ID-"+campaign.getPartnerId()+" Request::"+mapper.writerWithDefaultPrettyPrinter().writeValueAsString(campaign));
 			System.out.println("Create Campaign with Partner ID-"+partnerId+": Response::"+mapper.writerWithDefaultPrettyPrinter().writeValueAsString(response));
 
 			/*Get all existing active campaigns*/
